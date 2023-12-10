@@ -1,8 +1,10 @@
 import { YStack } from "@my/ui";
 import { useRouter } from "solito/router";
 import { SignUpSignInComponent } from "@my/ui/src/components/SignUpSignIn";
-import { supabase, supabaseUrl } from "app/utils/supabase";
+import { supabase } from "app/utils/supabase";
 import { trpc } from "app/utils/trpc";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
 export function SignUpScreen() {
   const createUserMutation = trpc.user.create.useMutation();
@@ -53,36 +55,7 @@ export function SignUpScreen() {
     </YStack>
   );
 }
-import { makeRedirectUri, startAsync } from "expo-auth-session";
-
 export const MobileOAuthSignIn = async ({ strategy }) => {
-  // This will create a redirectUri
-  // This should be the URL you added to "Redirect URLs" in Supabase URL Configuration
-  // If they are different add the value of redirectUrl to your Supabase Redirect URLs
-  const redirectUri = makeRedirectUri({
-    scheme: "scheme",
-    path: "sso-oauth",
-  });
-
-  /*   const redirectUrl = makeRedirectUri({
-    path: "/auth/callback",
-  }); */
-
-  // authUrl: https://{YOUR_PROJECT_REFERENCE_ID}.supabase.co
-  // returnURL: the redirectUrl you created above.
-  const authResponse = await startAsync({
-    authUrl: `${supabaseUrl}/auth/v1/authorize?provider=${strategy}&redirect_to=${redirectUri}`,
-    returnUrl: redirectUri,
-  });
-
-  // If the user successfully signs in
-  // we will have access to an accessToken and an refreshToken
-  // and then we'll use setSession (https://supabase.com/docs/reference/javascript/auth-setsession)
-  // to create a Supabase-session using these token
-  if (authResponse.type === "success") {
-    supabase.auth.setSession({
-      access_token: authResponse.params.access_token!,
-      refresh_token: authResponse.params.refresh_token!,
-    });
-  }
+  alert("no OAuth for now");
+  // No oauth for now
 };

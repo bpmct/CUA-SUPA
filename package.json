@@ -36,8 +36,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.9",
     "check-dependency-version-consistency": "^4.1.0",
-    "dotenv": "^16.0.3",
-    "dotenv-cli": "^7.2.1"
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@manypkg/cli": "^0.21.0",

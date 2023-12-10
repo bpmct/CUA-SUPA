@@ -15,7 +15,7 @@
     "build:tauri": "yarn tauri build"
   },
   "dependencies": {
-    "@tamagui/next-theme": "^1.48.2",
+    "@tamagui/next-theme": "^1.76.0",
     "app": "*",
     "dotenv-cli": "^7.2.1",
     "next": "^13.4.12",
@@ -28,7 +28,7 @@
     "webpack": "^5.88.2"
   },
   "devDependencies": {
-    "@tamagui/next-plugin": "^1.48.2",
+    "@tamagui/next-plugin": "^1.76.0",
     "@tauri-apps/cli": "^1.2.3",
     "@types/node": "^18.16.19",
     "critters": "^0.0.19",
